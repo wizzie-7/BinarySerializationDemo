@@ -16,15 +16,17 @@ namespace BinarySerializationDemo
         static void Main(string[] args)
         {
             Employee emp = new Employee();
-            FileStream fileStream = new FileStream(@"D:\wizzie\DOT NET\Questions1.txt", FileMode.Create);
+            FileStream fileStream = new FileStream(@"D:\wizzie\DOT NET\Questions2.txt", FileMode.Create);
             BinaryFormatter formatter = new BinaryFormatter();
             formatter.Serialize(fileStream, emp);
-            //Console.WriteLine(formatter.Serialize(fileStream, emp));
+            //Employee deserializedSampledemo = (Employee)formatters.Deserialize(fileStreams);
+            //Console.WriteLine(emp.EmployeeName,emp.EmployeeId);
 
-            Employee deemp = new Employee();
-            FileStream fileStream1 = new FileStream(@"D:\wizzie\DOT NET\Questions1.txt", FileMode.Create);
-            BinaryFormatter formatter1 = new BinaryFormatter();
-            formatter.Serialize(fileStream1, deemp);
+            //Employee deemp = new Employee();
+            FileStream fileStreams = new FileStream(@"D:\wizzie\DOT NET\Questions3.txt", FileMode.Open);
+            BinaryFormatter formatters = new BinaryFormatter();
+            Employee deserializedSampledemo = (Employee)formatters.Deserialize(fileStreams);
+            Console.WriteLine($"ApplicationName { deserializedSampledemo.EmployeeName} --- ApplicationId       { deserializedSampledemo.EmployeeId}");
 
         }
     }
